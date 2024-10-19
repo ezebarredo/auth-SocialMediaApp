@@ -2,11 +2,11 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
-import Layout from "./components/Layout.js";
-import LoginHome from "./components/LoginHome.js";
-import Login from "./components/Login.js";
-import SignUp from "./components/Signup.js";
-import AdminPanel from "./components/AdminPanel.js";
+import Layout from "./components/Layout.tsx";
+import LoginHome from "./components/LoginHome.tsx";
+import Login from "./components/Login.tsx";
+import SignUp from "./components/Signup.tsx";
+import SocialMedia from "./components/SocialMedia.tsx";
 
 const router = createBrowserRouter([
   {
@@ -18,18 +18,18 @@ const router = createBrowserRouter([
         element: <LoginHome />,
       },
       {
-        path: "/user/login",
-        element: <Login />,
-      },
-      {
         path: "/user/signup",
         element: <SignUp />,
       },
       {
-        path: "/user/admin",
-        element: <AdminPanel />,
+        path: "/user/login",
+        element: <Login />,
       },
     ],
+  },
+  {
+    path: "/user/socialmedia",
+    element: <SocialMedia />,
   },
 ]);
 

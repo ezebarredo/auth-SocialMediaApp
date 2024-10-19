@@ -1,13 +1,10 @@
-// import { Router } from "express";
 import type { Request, Response } from "express";
 
-// const app = express();
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-// const router = Router();
 
 // In production, use an environment variable
-const SECRET_KEY = "1020304050";
+const SECRET_KEY = "OAzqm9I81AM164tB2CzI9E2FIpmVDqIp";
 
 // Mock user database (replace with a real database in production)
 const users: { username: any; password: any }[] = [];
@@ -64,8 +61,3 @@ export const Login = async (req: Request, res: Response) => {
 //     next();
 //   });
 // }
-
-// router.post("/signup", signUp);
-// router.post("/login", Login);
-// router.post("/api/user/signup", signUp);
-// export default router;

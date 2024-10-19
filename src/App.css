@@ -4,6 +4,48 @@
   padding: 2rem;
 }
 
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: stretch;
+  border: solid 10px white;
+}
+
+.card {
+  padding: 2em;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  max-height: 600px;
+  background-color: #28262c;
+}
+
+.picture {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: 600px;
+}
+
+img {
+  width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}
+
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
@@ -17,14 +59,4 @@
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
-}
-
-.card {
-  padding: 2em;
-  text-align: left;
-  border: solid 1px aliceblue;
-}
-
-.read-the-docs {
-  color: #888;
 }
