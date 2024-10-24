@@ -7,6 +7,7 @@ import LoginHome from "./components/LoginHome.tsx";
 import Login from "./components/Login.tsx";
 import SignUp from "./components/Signup.tsx";
 import SocialMedia from "./components/SocialMedia.tsx";
+import TagPage from "./components/TagPage.tsx";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
   {
     path: "/user/socialmedia",
     element: <SocialMedia />,
+  },
+  {
+    path: "/user/socialmedia/tag/:tagId",
+    element: <TagPage />,
   },
 ]);
 

@@ -1,53 +1,43 @@
 import { useState } from "react";
 import store from "../store/store.ts";
 import type { Post } from "../store/store.ts";
+import { Link } from "react-router-dom";
 
 export default function Post() {
-  const [inputValue, setInputValue] = useState("");
-  const { posts, addPost } = store();
+  const [body, setBody] = useState("");
+  const { posts, addPost, resetPost } = store();
 
-  const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setInputValue((e.target as HTMLInputElement).value);
+  const onBodyInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setBody((e.target as HTMLInputElement).value);
   };
 
-  const postAddedTags = (inputValue: string) => {
-    const post = [inputValue];
-    const postCopy = [...post];
-    const findTags = postCopy
-      .toString()
-      .split(" ")
-      .filter((tag) => tag.startsWith("#"));
-    const convertTagToAnchor = findTags.map((tag) => `<a>${tag}</a>`);
-    const replaceTagForAnchor = postCopy
-      .toString()
-      .split(" ")
-      .map((element) =>
-        element.includes("#")
-          ? convertTagToAnchor.find((anchor) => anchor.includes(element))
-          : element
+  // function scope. The postBody is not related with body useState("")
+  const addTagsToPostBody = (postBody: string) =>
+    postBody.split(" ").map((word, index) =>
+      word.includes("#") ? (
+        <Link to={`/user/socialmedia/tag/${word.slice(1)}`} key={index}>
+          {word}{" "}
+        </Link>
+      ) : (
+        <span key={index}>{word} </span>
       )
-      .join(" ");
-    return replaceTagForAnchor;
-  };
+    );
 
-  const handlePost = () => {
-    if (inputValue != "") {
-      const convertInputToTextWithTags = postAddedTags(inputValue);
-      console.log("Type of processed:", typeof convertInputToTextWithTags); // string
-
+  const handleAddPost = () => {
+    if (body != "") {
       const newPost: Post = {
         id: posts.length + 1,
-        body: convertInputToTextWithTags,
+        body: body,
       };
 
       addPost(newPost);
-      setInputValue("");
+      setBody("");
     }
   };
 
-  // const handleReset = () => {
-  //   setPosts([]);
-  // };
+  const handleReset = () => {
+    resetPost();
+  };
 
   return (
     <>
@@ -57,13 +47,13 @@ export default function Post() {
           <input
             style={{ width: "100%", padding: "10px 15px", fontSize: "18px" }}
             type="text"
-            value={inputValue}
-            onInput={handleInput}
+            value={body}
+            onInput={onBodyInput}
           />
-          <button onClick={handlePost}>Post</button>
-          {/* <button style={{ background: "grey" }} onClick={handleReset}>
+          <button onClick={handleAddPost}>Post</button>
+          <button style={{ background: "grey" }} onClick={handleReset}>
             Reset
-          </button> */}
+          </button>
         </div>
       </div>
       {posts.map(({ id, body }) => (
@@ -76,9 +66,8 @@ export default function Post() {
             borderRadius: "8px",
           }}
           key={id}
-          dangerouslySetInnerHTML={{ __html: body }}
         >
-          {/* {body} */}
+          {addTagsToPostBody(body)}
         </p>
       ))}
     </>
