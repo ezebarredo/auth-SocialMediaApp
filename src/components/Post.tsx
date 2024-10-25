@@ -42,11 +42,16 @@ export default function Post() {
   return (
     <>
       <div>
-        <p>Write something </p>
+        <h4>Post something with a #hashtag</h4>
         <div style={{ display: "flex", gap: "10px" }}>
           <input
-            style={{ width: "100%", padding: "10px 15px", fontSize: "18px" }}
+            style={{
+              width: "100%",
+              padding: "10px 15px",
+              fontSize: "18px",
+            }}
             type="text"
+            placeholder="What are you thinking?"
             value={body}
             onInput={onBodyInput}
           />

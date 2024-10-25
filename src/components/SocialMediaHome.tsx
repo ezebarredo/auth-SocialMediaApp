@@ -1,7 +1,7 @@
 import store from "../store/store";
-import Tag from "./Tag";
+import Post from "./Post";
 
-export default function TagPage() {
+export default function SocialMediaHome() {
   const { name } = store();
 
   return (
@@ -20,7 +20,7 @@ export default function TagPage() {
           <h2>SmileLoop</h2>
           <h3>
             {" "}
-            <b>{name}</b>
+            Welcome <b>{name}</b> 😃
           </h3>
         </header>
         <div style={{ display: "flex", flex: 1 }}>
@@ -34,13 +34,20 @@ export default function TagPage() {
           >
             <ul style={{ listStyleType: "none", padding: 0 }}>
               <li>
-                <a
-                  href="/user/socialmedia/"
-                  style={{ color: "#fff", textDecoration: "none" }}
-                >
+                <a href="#" style={{ color: "#fff", textDecoration: "none" }}>
                   Dashboard
                 </a>
               </li>
+              {/* <li>
+                <a href="#" style={{ color: "#fff", textDecoration: "none" }}>
+                  Users
+                </a>
+              </li>
+              <li>
+                <a href="#" style={{ color: "#fff", textDecoration: "none" }}>
+                  Settings
+                </a>
+              </li> */}
               <li>
                 <a
                   href="/user/login"
@@ -57,7 +64,7 @@ export default function TagPage() {
               padding: "10px",
             }}
           >
-            <Tag />
+            <Post />
           </main>
         </div>
       </div>

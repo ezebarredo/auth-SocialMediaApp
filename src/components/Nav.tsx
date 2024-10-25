@@ -1,19 +1,7 @@
-import { useState } from "react";
 import store from "../store/store";
-import Post from "./Post";
 
-export default function SocialMedia() {
-  const [post, setPost] = useState("");
-
+export default function Nav() {
   const { name } = store.getState();
-
-  const postInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPost((_username: string) => e.target.value);
-  };
-
-  const handlePost = () => {
-    setPost(post);
-  };
 
   return (
     <>
@@ -79,9 +67,7 @@ export default function SocialMedia() {
               flex: 1,
               padding: "10px",
             }}
-          >
-            <Post />
-          </main>
+          ></main>
         </div>
       </div>
     </>

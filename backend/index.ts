@@ -19,7 +19,6 @@ const users: { username: any; password: any }[] = [];
 
 // API SIGNUP POST
 app.post("/api/user/signup", async (req: Request, res: Response) => {
-  // const { username, password } = req.body;
   try {
     const { username, password } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
