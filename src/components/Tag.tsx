@@ -18,9 +18,10 @@ export default function Tag() {
 
   return (
     <>
-      <h2>Tag name: #{tagId}</h2>
+      <h2>#{tagId}</h2>
+      <h4>For you</h4>
       {posts
-        .filter(({ body }) => body.includes(tagId))
+        .filter(({ body }) => body.includes(`#${tagId}` ? `#${tagId}` : ""))
         .map(({ id, body }) => (
           <p
             style={{

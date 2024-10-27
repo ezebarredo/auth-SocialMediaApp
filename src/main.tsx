@@ -3,21 +3,16 @@ import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./index.css";
 import Layout from "./components/Layout.tsx";
-import LoginHome from "./components/LoginHome.tsx";
 import Login from "./components/Login.tsx";
 import SignUp from "./components/Signup.tsx";
-import SocialMediaHome from "./components/SocialMediaHome.tsx";
 import TagPage from "./components/TagPage.tsx";
+import HomePost from "./components/HomePost.tsx";
 
 const router = createBrowserRouter([
   {
     path: "/user",
     element: <Layout />,
     children: [
-      {
-        path: "/user",
-        element: <LoginHome />,
-      },
       {
         path: "/user/signup",
         element: <SignUp />,
@@ -30,7 +25,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/user/socialmedia",
-    element: <SocialMediaHome />,
+    element: <HomePost />,
   },
   {
     path: "/user/socialmedia/tag/:tagId",

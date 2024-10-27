@@ -1,7 +1,7 @@
 import store from "../store/store";
 import Post from "./Post";
 
-export default function SocialMediaHome() {
+export default function HomePost() {
   const { name } = store();
 
   return (
@@ -32,10 +32,21 @@ export default function SocialMediaHome() {
               padding: "10px",
             }}
           >
-            <ul style={{ listStyleType: "none", padding: 0 }}>
+            <ul
+              style={{
+                listStyleType: "none",
+              }}
+            >
               <li>
-                <a href="#" style={{ color: "#fff", textDecoration: "none" }}>
-                  Dashboard
+                <a
+                  href="#"
+                  style={{
+                    color: "#fff",
+                    textDecoration: "none",
+                    fontSize: "20px",
+                  }}
+                >
+                  Home
                 </a>
               </li>
               {/* <li>
@@ -51,7 +62,11 @@ export default function SocialMediaHome() {
               <li>
                 <a
                   href="/user/login"
-                  style={{ color: "#fff", textDecoration: "none" }}
+                  style={{
+                    color: "#fff",
+                    textDecoration: "none",
+                    fontSize: "20px",
+                  }}
                 >
                   Logout
                 </a>

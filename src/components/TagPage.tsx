@@ -9,7 +9,7 @@ export default function TagPage() {
       <div
         style={{ display: "flex", flexDirection: "column", height: "100vh" }}
       >
-        <header
+        {/* <header
           style={{
             backgroundColor: "#646cff",
             color: "#fff",
@@ -22,7 +22,7 @@ export default function TagPage() {
             {" "}
             <b>{name}</b>
           </h3>
-        </header>
+        </header> */}
         <div style={{ display: "flex", flex: 1 }}>
           <nav
             style={{
@@ -32,19 +32,35 @@ export default function TagPage() {
               padding: "10px",
             }}
           >
-            <ul style={{ listStyleType: "none", padding: 0 }}>
+            <ul
+              style={{
+                listStyleType: "none",
+                display: "flex",
+                flexDirection: "column",
+                gap: "15px",
+              }}
+            >
+              <h2 style={{ color: "#fff" }}>SmileLoop</h2>
               <li>
                 <a
                   href="/user/socialmedia/"
-                  style={{ color: "#fff", textDecoration: "none" }}
+                  style={{
+                    color: "#fff",
+                    textDecoration: "none",
+                    fontSize: "20px",
+                  }}
                 >
-                  Dashboard
+                  Home
                 </a>
               </li>
               <li>
                 <a
                   href="/user/login"
-                  style={{ color: "#fff", textDecoration: "none" }}
+                  style={{
+                    color: "#fff",
+                    textDecoration: "none",
+                    fontSize: "20px",
+                  }}
                 >
                   Logout
                 </a>

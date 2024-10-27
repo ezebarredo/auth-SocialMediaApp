@@ -42,7 +42,7 @@ export default function Post() {
   return (
     <>
       <div>
-        <h4>Post something with a #hashtag</h4>
+        <h4>Label posts with # to explore similar content</h4>
         <div style={{ display: "flex", gap: "10px" }}>
           <input
             style={{
