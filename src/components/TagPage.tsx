@@ -1,8 +1,6 @@
-import store from "../store/store";
 import Tag from "./Tag";
 
 export default function TagPage() {
-  const { name } = store();
 
   return (
     <>
