@@ -7,6 +7,7 @@ export type StoreState = {
   setToken: (token: string) => void;
   setName: (name: string) => void;
   addPost: (post: Post) => void;
+  deletePost: (id: number) => void;
   resetPost: () => void;
 };
 
@@ -28,6 +29,13 @@ const store = create<StoreState>((set) => ({
   addPost: (post: Post) => {
     set((state: StoreState) => ({ posts: [...state.posts, post] }));
   },
+
+  deletePost: (id: number) => {
+    set((state: StoreState) => ({
+      posts: [...state.posts.filter((post) => post.id != id)],
+    }));
+  },
+
   resetPost: () => {
     set(() => ({ posts: [] }));
   },

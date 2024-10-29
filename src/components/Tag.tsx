@@ -21,20 +21,22 @@ export default function Tag() {
       <h2>#{tagId}</h2>
       <h4>For you</h4>
       {posts
-        .filter(({ body }) => body.includes(`#${tagId}` ? `#${tagId}` : ""))
+        .filter(({ body }) => body.includes(`#${tagId}`))
         .map(({ id, body }) => (
-          <p
+          <div
             style={{
+              display: "flex",
+              justifyContent: "space-between",
               fontSize: "18px",
-              padding: "10px",
+              padding: "5px 15px",
               background: "white",
               color: "black",
               borderRadius: "8px",
+              margin: "20px 0px",
             }}
-            key={id}
           >
-            {addTagsToPostBody(body)}
-          </p>
+            <p key={id}>{addTagsToPostBody(body)}</p>
+          </div>
         ))}
     </>
   );

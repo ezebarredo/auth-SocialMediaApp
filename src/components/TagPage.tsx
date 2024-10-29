@@ -1,26 +1,11 @@
 import Tag from "./Tag";
 
 export default function TagPage() {
-
   return (
     <>
       <div
         style={{ display: "flex", flexDirection: "column", height: "100vh" }}
       >
-        {/* <header
-          style={{
-            backgroundColor: "#646cff",
-            color: "#fff",
-            padding: "10px",
-            textAlign: "center",
-          }}
-        >
-          <h2>SmileLoop</h2>
-          <h3>
-            {" "}
-            <b>{name}</b>
-          </h3>
-        </header> */}
         <div style={{ display: "flex", flex: 1 }}>
           <nav
             style={{

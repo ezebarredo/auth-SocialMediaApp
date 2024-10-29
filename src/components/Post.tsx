@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export default function Post() {
   const [body, setBody] = useState("");
-  const { posts, addPost, resetPost } = store();
+  const { posts, addPost, deletePost, resetPost } = store();
 
   const onBodyInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setBody((e.target as HTMLInputElement).value);
@@ -39,6 +39,10 @@ export default function Post() {
     resetPost();
   };
 
+  const handleDeletePost = (id: number) => {
+    deletePost(id);
+  };
+
   return (
     <>
       <div>
@@ -62,18 +66,32 @@ export default function Post() {
         </div>
       </div>
       {posts.map(({ id, body }) => (
-        <p
+        <div
           style={{
+            display: "flex",
+            justifyContent: "space-between",
             fontSize: "18px",
-            padding: "10px",
+            padding: "5px 15px",
             background: "white",
             color: "black",
             borderRadius: "8px",
+            margin: "20px 0px",
           }}
-          key={id}
         >
-          {addTagsToPostBody(body)}
-        </p>
+          <p key={id}>{addTagsToPostBody(body)}</p>
+          <button
+            style={{
+              background: "grey",
+              padding: "2px",
+              borderRadius: "100%",
+              width: "30px",
+              height: "30px",
+            }}
+            onClick={() => handleDeletePost(id)}
+          >
+            X
+          </button>
+        </div>
       ))}
     </>
   );
